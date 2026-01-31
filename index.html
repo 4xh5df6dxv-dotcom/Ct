@@ -29,10 +29,18 @@
   </style>
 </head>
 <body>
-  <main>
-    <h1>CT</h1>
-    <p>Online + offline. ✅</p>
-  </main>
+  <main id="app">
+  <h1>CT</h1>
+  <p class="subtitle">Perché ne hai voglia adesso?</p>
+
+  <div class="choices">
+    <button data-type="regolazione">🧠 Regolazione</button>
+    <button data-type="socialità">👥 Socialità</button>
+    <button data-type="evasione">🕳 Evasione</button>
+  </div>
+
+  <div id="response" hidden></div>
+</main>
 
   <script>
     if ("serviceWorker" in navigator) {
@@ -40,6 +48,20 @@
         navigator.serviceWorker.register("./service-worker.js");
       });
     }
+    const responses = {
+  regolazione: "Prova 3 respiri lenti. Il picco passa.",
+  socialità: "Scrivi a qualcuno. Connessione ≠ fumo.",
+  evasione: "Chiediti: cosa sto evitando per 10 minuti?"
+};
+
+document.querySelectorAll("button").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const type = btn.dataset.type;
+    const box = document.getElementById("response");
+    box.textContent = responses[type];
+    box.hidden = false;
+  });
+});
   </script>
 </body>
 </html>
