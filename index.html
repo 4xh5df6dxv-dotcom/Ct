@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>CT</title>
+  <meta name="description" content="Check rapido di consapevolezza.">
+
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="theme-color" content="#000000">
+
+  <!-- iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="CT">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <link rel="apple-touch-icon" href="apple/apple-touch-icon-180.png">
+
+  <style>
+    :root { color-scheme: dark; }
+    body{
+      margin:0; background:#000; color:#fff;
+      font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text",system-ui;
+      min-height:100vh; display:flex; align-items:center; justify-content:center;
+      text-align:center; padding:24px;
+    }
+    h1{ margin:0 0 8px; font-size:34px; letter-spacing:0.2px; }
+    p{ margin:0; opacity:.75; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>CT</h1>
+    <p>Online + offline. ✅</p>
+  </main>
+
+  <script>
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => {
+        navigator.serviceWorker.register("./service-worker.js");
+      });
+    }
+  </script>
+</body>
+</html>
